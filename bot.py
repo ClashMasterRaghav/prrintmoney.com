@@ -15,8 +15,8 @@ def fetch_ipo_data_selenium():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Construct paths relative to the script's location
-    DRIVER_PATH = os.path.join(script_dir, "../chrome_accessories/chromedriver-win64/chromedriver.exe")
-    CHROME_BINARY_PATH = os.path.join(script_dir, "../chrome_accessories/chrome-headless-shell-win64/chrome-headless-shell.exe")
+    DRIVER_PATH = os.path.join(script_dir, "chromedriver-linux64/chromedriver")
+    CHROME_BINARY_PATH = os.path.join(script_dir, "chrome-headless-shell-linux64/chrome-headless-shell")
 
     url = "https://www.investorgain.com/report/live-ipo-gmp/331/ipo/"
 
@@ -78,7 +78,7 @@ def fetch_ipo_data_selenium():
         # Save data
         if data:
             df = pd.DataFrame(data)
-            CSV_PATH = os.path.join(script_dir, "../ipo_data.csv")
+            CSV_PATH = os.path.join(script_dir, "ipo_data.csv")
             # Save the DataFrame to the constructed path
             df.to_csv(CSV_PATH, index=False)
             print(f"Data saved to {CSV_PATH}")
