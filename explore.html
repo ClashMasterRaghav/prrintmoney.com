@@ -98,7 +98,7 @@
 
   <script>
     // Fetch and display data from the CSV file automatically
-    fetch('../ipo_data.csv') // Path to your CSV file
+    fetch('ipo_data.csv') // Path to your CSV file
       .then(response => response.text())
       .then(csvData => {
         const data = parseCSV(csvData);
