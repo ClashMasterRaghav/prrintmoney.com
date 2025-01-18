@@ -38,6 +38,7 @@ jobs:
         run: |
           git config --global user.name 'ClashMasterRaghav'  # Replace with your GitHub username
           git config --global user.email 'gamescocclans123@gmail.com'  # Replace with your email
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ClashMasterRaghav/prrintmoney.com.git
           git add ipo_data.csv
           git commit -m "Update IPO data"
           git push origin main
