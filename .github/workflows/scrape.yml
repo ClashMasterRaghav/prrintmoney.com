@@ -34,7 +34,7 @@ jobs:
 
       - name: Run IPO scraper script
         run: |
-          python fetch_ipo_data.py  # Adjust the file name to match your script
+          python bot.py  # Adjust the file name to match your script
 
       - name: Upload IPO data CSV
         uses: actions/upload-artifact@v2
