@@ -36,12 +36,19 @@ jobs:
 
       - name: Commit and Push updated CSV to main repo
         run: |
-          git config --global user.name 'ClashMasterRaghav'  # Replace with your GitHub username
-          git config --global user.email 'gamescocclans123@gmail.com'  # Replace with your email
+          git config --global user.name 'ClashMasterRaghav'
+          git config --global user.email 'gamescocclans123@gmail.com'
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ClashMasterRaghav/prrintmoney.com.git
+          git pull origin main --rebase  # Pull new changes to avoid conflicts
           git add ipo_data.csv
           git commit -m "Update IPO data"
           git push origin main
+
+      - name: Debug Git State
+        run: |
+          git status
+          git log -1
+          ls -l
 
       - name: Upload IPO data CSV
         uses: actions/upload-artifact@v3
