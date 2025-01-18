@@ -34,6 +34,14 @@ jobs:
       - name: Run bot script
         run: python bot.py  # Ensure bot.py is at the root of your repo
 
+      - name: Update Website with Latest Changes
+        run: |
+          git config --global user.name 'ClashMasterRaghav'
+          git config --global user.email 'gamescocclans123@gmail.com'
+          git add .
+          git commit -m "Update website with latest IPO data"
+          git push origin main
+
       - name: Stage and Commit Changes
         run: |
           git config --global user.name 'ClashMasterRaghav'
