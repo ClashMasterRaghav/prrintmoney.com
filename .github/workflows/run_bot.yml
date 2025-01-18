@@ -39,25 +39,16 @@ jobs:
           git config --global user.name 'ClashMasterRaghav'
           git config --global user.email 'gamescocclans123@gmail.com'
           git add .
-          git commit -m "Update website with latest IPO data"
-          git push origin main
+          git diff --quiet || (git commit -m "Update website with latest IPO data" &&
+          git push origin main)
 
       - name: Stage and Commit Changes
         run: |
           git config --global user.name 'ClashMasterRaghav'
           git config --global user.email 'gamescocclans123@gmail.com'
           git add ipo_data.csv
-          git commit -m "Intermediate commit for rebase"
+          git diff --quiet || (git commit -m "Intermediate commit for rebase")
 
-      - name: Add and Commit Changes
-        run: |
-          git add .
-          if git diff-index --quiet HEAD; then
-            echo "Nothing to commit. Skipping commit step."
-          else
-            git commit -m "Automated commit"
-          fi
-          
       - name: Pull and Push Changes
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ClashMasterRaghav/prrintmoney.com.git
