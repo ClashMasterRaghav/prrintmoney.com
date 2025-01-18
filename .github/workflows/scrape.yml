@@ -28,6 +28,10 @@ jobs:
         run: |
           python bot.py  # Adjust the file name to match your script
 
+      - name: Verify dependencies
+        run: |
+          python -m pip show beautifulsoup4
+
       - name: Upload IPO data CSV
         uses: actions/upload-artifact@v3
         with:
