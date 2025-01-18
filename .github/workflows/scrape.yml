@@ -31,9 +31,3 @@ jobs:
       - name: Verify dependencies
         run: |
           python -m pip show beautifulsoup4
-
-      - name: Upload IPO data CSV
-        uses: actions/upload-artifact@v3
-        with:
-          name: ipo-data
-          path: ipo_data.csv
