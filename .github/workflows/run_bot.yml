@@ -2,7 +2,7 @@ name: Run Bot Script
 
 on:
   schedule:
-    - cron: '0 7-23 * * *'  # Run every hour from 8:00 AM to 11:00 PM (midnight)
+    - cron: '0 8-23 * * *'  # Run every hour from 8:00 AM to 11:00 PM (midnight)
   workflow_dispatch:  # Allow manual runs
 
 jobs:
@@ -49,6 +49,15 @@ jobs:
           git add ipo_data.csv
           git commit -m "Intermediate commit for rebase"
 
+      - name: Add and Commit Changes
+        run: |
+          git add .
+          if git diff-index --quiet HEAD; then
+            echo "Nothing to commit. Skipping commit step."
+          else
+            git commit -m "Automated commit"
+          fi
+          
       - name: Pull and Push Changes
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ClashMasterRaghav/prrintmoney.com.git
