@@ -34,26 +34,22 @@ jobs:
       - name: Run bot script
         run: python bot.py  # Ensure bot.py is at the root of your repo
 
-      - name: Update Website with Latest Changes
-        run: |
-          git config --global user.name 'ClashMasterRaghav'
-          git config --global user.email 'gamescocclans123@gmail.com'
-          git add .
-          git diff --quiet || (git commit -m "Update website with latest IPO data" &&
-          git push origin main)
-
-      - name: Stage and Commit Changes
+      - name: Commit IPO Data Changes
         run: |
           git config --global user.name 'ClashMasterRaghav'
           git config --global user.email 'gamescocclans123@gmail.com'
           git add ipo_data.csv
-          git diff --quiet || (git commit -m "Intermediate commit for rebase")
+          git diff --quiet ipo_data.csv || git commit -m "Update IPO data file"
 
       - name: Pull and Push Changes
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ClashMasterRaghav/prrintmoney.com.git
-          git pull origin main --rebase  # Pull new changes to avoid conflicts
-          git push origin main  # Push the final changes
+          git stash push --include-untracked  # Stash all changes, including new files
+          git pull origin main --rebase
+          git stash apply || true  # Reapply stashed changes
+          git add ipo_data.csv  # Ensure IPO data updates are staged
+          git diff --quiet || git commit -m "Sync IPO data changes after rebase"
+          git push origin main
 
       - name: Debug Git State
         run: |
