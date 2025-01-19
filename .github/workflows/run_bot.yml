@@ -26,7 +26,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install dependencies (if cache is empty or outdated)
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
@@ -34,26 +34,14 @@ jobs:
       - name: Run bot script
         run: python bot.py  # Ensure bot.py is at the root of your repo
 
-      - name: Update Website with Latest Changes
+      - name: Commit and Push Changes
         run: |
           git config --global user.name 'ClashMasterRaghav'
           git config --global user.email 'gamescocclans123@gmail.com'
           git add .
-          git commit -m "Update website with latest IPO data"
-          git push origin main
-
-      - name: Stage and Commit Changes
-        run: |
-          git config --global user.name 'ClashMasterRaghav'
-          git config --global user.email 'gamescocclans123@gmail.com'
-          git add ipo_data.csv
-          git commit -m "Intermediate commit for rebase"
-
-      - name: Pull and Push Changes
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/ClashMasterRaghav/prrintmoney.com.git
-          git pull origin main --rebase  # Pull new changes to avoid conflicts
-          git push origin main  # Push the final changes
+          git diff --quiet || (git commit -m "Update website and IPO data" &&
+          git pull origin main --rebase &&
+          git push origin main)
 
       - name: Debug Git State
         run: |
@@ -61,7 +49,7 @@ jobs:
           git log -1
           ls -l
 
-      - name: Upload IPO data CSV
+      - name: Upload IPO Data as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: ipo-data
