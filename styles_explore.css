@@ -128,10 +128,6 @@ table th {
     background-color: #78adad;
 }
 
-/* table tr:nth-child(even) {
-    background-color: #D6EEEE;
-} */
-
 /* Add vertical scrollable container for table rows */
 .ipo-data table {
     max-height: 500px;
@@ -222,4 +218,122 @@ a:hover {
     margin-top: 20px;
     font-size: 1rem;
     color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Header Navigation */
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    /* Table Styles */
+    .ipo-data table {
+        width: 100%;
+        max-width: none;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links,
+    .contact-info,
+    .social-links,
+    .newsletter,
+    .legal-info {
+        flex: 1 1 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    /* Newsletter Input Field */
+    .newsletter input {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .newsletter button {
+        width: 80%;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Header Navigation */
+    nav {
+        padding: 10px 30px;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 0 20px;
+    }
+
+    /* Table Styles */
+    .ipo-data table {
+        width: 100%;
+        max-width: 900px;
+    }
+
+    table th, table td {
+        padding: 8px;
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .footer-links,
+    .contact-info,
+    .social-links,
+    .newsletter,
+    .legal-info {
+        flex: 1 1 250px;
+        margin: 10px;
+    }
+
+    .newsletter input {
+        width: 75%;
+    }
+
+    .footer-cta {
+        font-size: 1rem;
+    }
 }
