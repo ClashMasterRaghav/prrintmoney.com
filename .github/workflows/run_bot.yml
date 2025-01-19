@@ -32,16 +32,18 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run bot script
-        run: python bot.py  # Ensure bot.py is at the root of your repo
+        run: python bot.py  # Ensure bot.py generates or updates ipo_data.csv
 
-      - name: Commit and Push Changes
+      - name: Commit and Push Changes for CSV
         run: |
           git config --global user.name 'ClashMasterRaghav'
           git config --global user.email 'gamescocclans123@gmail.com'
-          git add .
-          git diff --quiet || (git commit -m "Update website and IPO data" &&
-          git pull origin main --rebase &&
-          git push origin main)
+          git add ipo_data.csv  # Explicitly track changes to ipo_data.csv
+          git diff --cached --quiet || ( \
+            git commit -m "Update IPO data" && \
+            git pull origin main --rebase && \
+            git push origin main \
+          )
 
       - name: Debug Git State
         run: |
