@@ -84,56 +84,176 @@ nav {
     /* Darker Teal for hover */
 }
 
-/* Table Styles */
-.ipo-data {
-    width: 100%;
-    margin-top: 20px;
-    overflow-x: auto;
-    /* Allow horizontal scroll */
+/* width */
+.ipo-data::-webkit-scrollbar {
+    width: 1px;
 }
 
+/* Track */
+.ipo-data::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+.ipo-data::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+.ipo-data::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Wrapper for table and new container */
+.ipo-container {
+    display: flex;
+    /* Align items side by side */
+    justify-content: space-between;
+    /* Ensure space between the two containers */
+    gap: 10px;
+    /* Optional: space between the table and the right container */
+    margin-top: 20px;
+}
+
+/* Existing Table Container */
+.ipo-data {
+    width: 80%;
+    /* Adjust the table width */
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    padding-left: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* New Container (Right of the table) */
+.ipo-details {
+    width: 28%;
+    /* Adjust the width of the right container */
+    background-color: #E0F2F1;
+    /* Light background for the new container */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* Caption Styles */
+caption {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.8em;
+    font-style: italic;
+    margin: 5px;
+    text-align: left;
+    color: #00796B;
+    /* Teal for a fresh look */
+}
+
+/* Table Styles */
 table {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     /* Restrict maximum width */
     margin: 0 auto;
-    /* Center the table with some space around it */
+    /* Center the table */
     border-collapse: collapse;
-    display: block;
-    background-color: #fff;
+    background-color: #ffffff;
+    font-size: 14px;
+    /* Slightly larger font for readability */
+    border-radius: 8px;
+    /* Rounded table corners */
+    /* overflow: hidden; /* Clip overflow for rounded corners */
 }
 
-table tr:hover {
-    background-color: #D6EEEE;
-}
-
-table tr {
-    border-bottom: 1px solid #ddd;
-}
-
+/* Header Styles */
 table th {
+    background-color: #00796B;
+    /* Teal */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 12px;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
 }
 
-table, th, td {
-    border: 1px solid rgb(224, 224, 224);
-    border-collapse: collapse;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    padding-left: 5px;
-    padding-right: 5px;
+/* Row Background Colors */
+table tr:nth-child(even) {
+    background-color: #E0F2F1;
+    /* Light Mint */
 }
 
-table th {
-    background-color: #78adad;
+table tr:nth-child(odd) {
+    background-color: #ffffff;
 }
 
-/* Add vertical scrollable container for table rows */
+/* Hover Effect */
+table tr:hover {
+    background-color: #B2DFDB;
+    /* Pale Aqua */
+    transition: background-color 0.3s ease;
+}
+
+/* Cell Styles */
+table td {
+    border-right: 1px solid #e0e0e0;
+    /* Light grey borders between cells */
+    padding: 8px 12px;
+    /* Balanced padding */
+    text-align: center;
+    color: #333;
+    /* Dark grey text for better contrast */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Bold and Highlighted Columns */
+table td:nth-child(1),
+/* IPO Name */
+table td:nth-child(4) {
+    /* GMP */
+    font-weight: bold;
+    text-decoration: underline;
+    color: #00796B;
+    /* Teal for emphasis */
+}
+
+/* Table Scrolling */
 .ipo-data table {
     max-height: 500px;
-    /* Set max height for the table */
+    /* Restrict table height */
     overflow-y: auto;
-    /* Make the table scrollable vertically */
+    /* Enable vertical scrolling */
+    display: block;
+    margin: 0 auto;
+    /* Center the table */
+}
+
+/* Add Rounded Corners and Shadow to Header */
+table th:first-child {
+    border-top-left-radius: 8px;
+    /* Top-left corner */
+}
+
+table th:last-child {
+    border-top-right-radius: 8px;
+    /* Top-right corner */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    table td,
+    table th {
+        font-size: 12px;
+        /* Adjust font size for smaller screens */
+        padding: 6px;
+        /* Reduce padding for compact layout */
+    }
 }
 
 /* Footer Styles */
@@ -221,6 +341,7 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
+
     /* Header Navigation */
     nav {
         flex-direction: column;
@@ -284,6 +405,7 @@ a:hover {
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
+
     /* Header Navigation */
     nav {
         padding: 10px 30px;
@@ -308,7 +430,8 @@ a:hover {
         max-width: 900px;
     }
 
-    table th, table td {
+    table th,
+    table td {
         padding: 8px;
     }
 
