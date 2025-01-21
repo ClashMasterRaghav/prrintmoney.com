@@ -84,26 +84,6 @@ nav {
     /* Darker Teal for hover */
 }
 
-/* width */
-.ipo-data::-webkit-scrollbar {
-    width: 1px;
-}
-
-/* Track */
-.ipo-data::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle */
-.ipo-data::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-/* Handle on hover */
-.ipo-data::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
 /* Wrapper for table and new container */
 .ipo-container {
     display: flex;
@@ -123,6 +103,7 @@ nav {
     overflow-y: auto;
     background-color: #f9f9f9;
     padding-left: 10px;
+    padding-right: 0%;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -138,9 +119,21 @@ nav {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Scrollbar done */
+.scroll-box::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
 
+.scroll-box::-webkit-scrollbar,
+.scroll-box::-webkit-scrollbar-thumb {
+    overflow: visible;
+    border-radius: 4px;
+}
 
-
+.scroll-box::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .2);
+}
 
 /* Caption Styles */
 caption {
