@@ -52,7 +52,7 @@ jobs:
           ls -l
 
       - name: Upload IPO Data as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ipo-data
           path: ipo_data.csv
