@@ -10,14 +10,14 @@
     <header>
       <nav>
         <div class="logo" unselectable="on">
-          <a href="index.html">PrintMoney</a>
+          <a href="index.html"><img src="images/logo.jpg" height="70px" /></a>
         </div>
         <ul class="nav-links">
-          <li><a href="#">Upcoming IPOs</a></li>
+          <!-- <li><a href="#">Upcoming IPOs</a></li>
           <li><a href="#">IPO Calendar</a></li>
           <li><a href="#">IPO Analysis</a></li>
-          <li><a href="#">Market Trends</a></li>
-          <li><a href="#" class="cta-btn">Get Started</a></li>
+          <li><a href="#">Market Trends</a></li> -->
+          <li><a href="#" class="cta-btn">Sign IN</a></li>
         </ul>
       </nav>
     </header>
@@ -25,10 +25,7 @@
     <section class="ipo-container">
       <!-- Table to display IPO data -->
       <section class="ipo-data">
-        <table id="ipo-table" class="scroll-box">
-          <caption>
-            Latest IPO Data
-          </caption>
+        <table id="ipo-table" class="scroll-box" unselectable="on">
           <thead>
             <tr>
               <th>IPO Name</th>
@@ -58,18 +55,8 @@
       </section>
     </section>
 
-    <br /><br />
-
     <footer>
       <div class="footer-container">
-        <!-- Quick Links -->
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <a href="index.html">Home</a> | <a href="#">Upcoming IPOs</a> |
-          <a href="#">IPO Calendar</a> | <a href="#">Contact Us</a> |
-          <a href="#">About Us</a>
-        </div>
-
         <!-- Contact Information -->
         <div class="contact-info">
           <h4>Contact Us</h4>
@@ -83,9 +70,9 @@
         <!-- Social Media Links -->
         <div class="social-links">
           <h4>Follow Us</h4>
-          <a href="#"><img src="twitter-icon.png" alt="Twitter" /></a>
-          <a href="#"><img src="linkedin-icon.png" alt="LinkedIn" /></a>
-          <a href="#"><img src="instagram-icon.png" alt="Instagram" /></a>
+          <a href="#"><img src="images/x-icon.png" alt="X" /></a>
+          <a href="#"><img src="images/linkedin-icon.png" alt="LinkedIn" /></a>
+          <a href="#"><img src="images/instagram-icon.png" alt="Instagram" /></a>
         </div>
 
         <!-- Newsletter Signup -->
@@ -93,10 +80,12 @@
           <h4>Subscribe to our Newsletter</h4>
           <form action="#">
             <input type="email" placeholder="Enter your email" required />
+            <br />
             <button type="submit">Subscribe</button>
           </form>
         </div>
-
+      </div>
+      <section class="end">
         <!-- Legal Information -->
         <div class="legal-info">
           <p>
@@ -111,7 +100,7 @@
             companion.
           </p>
         </div>
-      </div>
+      </section>
     </footer>
 
     <script>

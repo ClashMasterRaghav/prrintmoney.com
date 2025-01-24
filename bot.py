@@ -3,6 +3,26 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import os
 
+def convert_ipo_link(original_link):
+    """
+    Converts the IPO link to the desired format.
+    """
+    if original_link:
+        # Remove the base URL to manipulate only the path
+        base_url = "https://www.investorgain.com"
+        path = original_link.replace(base_url, "")
+        
+        # Replace 'gmp' with 'ipo' and remove the '-gmp' part
+        parts = path.split('/')
+        if len(parts) > 3 and parts[1] == "gmp":
+            parts[1] = "ipo"
+            parts[2] = parts[2].replace("-gmp", "")
+        
+        # Reconstruct the path and prepend the base URL
+        edited_link = base_url + "/".join(parts)
+        return edited_link
+    return None
+
 def fetch_ipo_data_requests():
     # Get the directory of the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -36,9 +56,21 @@ def fetch_ipo_data_requests():
 
         # Extract data from each row
         data = []
+        base_url = "https://www.investorgain.com"  # Base URL to prepend
+
         for row in rows[1:]:  # Skip header row
             cols = row.find_all('td')
             if cols:
+                # Find the IPO link in the first column (assumed to be in an <a> tag)
+                ipo_link = cols[0].find('a')['href'] if cols[0].find('a') else None
+                
+                # Prepend the base URL to the link
+                if ipo_link and not ipo_link.startswith('http'):
+                    ipo_link = base_url + ipo_link
+
+                # Convert the IPO link to the desired format
+                edited_ipo_link = convert_ipo_link(ipo_link)
+
                 data.append({
                     "IPO Name": cols[0].text.strip(),
                     "Status": cols[1].text.strip(),
@@ -53,6 +85,8 @@ def fetch_ipo_data_requests():
                     "BoA Dt": cols[10].text.strip(),
                     "Listing": cols[11].text.strip(),
                     "GMP Updated": cols[12].text.strip(),
+                    "IPO Link": ipo_link,  # Original link
+                    "Edited IPO Link": edited_ipo_link,  # Edited link
                 })
 
         # Save data to CSV if data is available

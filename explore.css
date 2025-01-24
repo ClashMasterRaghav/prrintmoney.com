@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,32 +7,17 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.3;
-    background-color: #f7f7f7;
-    /* Soft Light Gray */
-    color: #333;
-    /* Dark Charcoal */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-h1,
-h3 {
-    margin-bottom: 1rem;
+    background-color: #FDFDFF;
 }
 
 /* Header */
 header {
-    background-color: #fff;
-    /* White */
-    padding: 20px 0;
-    border-bottom: 2px solid #f1f1f1;
-    /* Light Gray */
+    background-color: #393D3F;
+    padding-top: 5px;
+    /* border-bottom: 2px solid #393D3F; */
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 
 nav {
@@ -43,65 +27,59 @@ nav {
     padding: 0 50px;
 }
 
-/* Logo Styling */
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #003366;
-    /* Rich Navy Blue */
-    cursor: default;
-}
-
 .nav-links {
     display: flex;
     list-style: none;
+    text-decoration: none;
 }
 
 .nav-links li {
-    margin: 0 15px;
+    margin: 15px;
+    padding-bottom: 3px;
 }
 
 .nav-links a {
-    color: #003366;
-    /* Rich Navy Blue */
-    font-size: 1rem;
+    color: #FDFDFF;
+    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .cta-btn {
-    background-color: #00bfae;
-    /* Vibrant Turquoise/Teal */
+    background-color: #393D3F;
     padding: 10px 20px;
     border-radius: 5px;
-    color: #fff;
-    /* White */
+    border: 1px solid #FDFDFF;
+    color: #FDFDFF;
     font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
 }
 
 .cta-btn:hover {
-    background-color: #009f8c;
-    /* Darker Teal for hover */
+    background-color: #FDFDFF;
+    border: 1px solid #393D3F;
+    color: #393D3F;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
 }
 
+/* ------------------------------------------------------------------------- */
 /* Wrapper for table and new container */
 .ipo-container {
+    background-color: #546A7B;
     display: flex;
-    /* Align items side by side */
+    padding-top: 150px;
+    padding-bottom: 50px;
     justify-content: space-between;
-    /* Ensure space between the two containers */
     gap: 10px;
-    /* Optional: space between the table and the right container */
-    margin-top: 20px;
 }
 
 /* Existing Table Container */
 .ipo-data {
     width: 80%;
-    /* Adjust the table width */
     overflow-x: auto;
     overflow-y: auto;
-    background-color: #f9f9f9;
     padding-left: 10px;
     padding-right: 0%;
     border-radius: 8px;
@@ -112,7 +90,7 @@ nav {
 .ipo-details {
     width: 28%;
     /* Adjust the width of the right container */
-    background-color: #E0F2F1;
+    background-color: #C6C5B9;
     /* Light background for the new container */
     padding: 15px;
     border-radius: 8px;
@@ -135,17 +113,6 @@ nav {
     background: rgba(0, 0, 0, .2);
 }
 
-/* Caption Styles */
-caption {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1.8em;
-    font-style: italic;
-    margin: 5px;
-    text-align: left;
-    color: #00796B;
-    /* Teal for a fresh look */
-}
-
 /* Table Styles */
 table {
     width: 100%;
@@ -154,40 +121,47 @@ table {
     margin: 0 auto;
     /* Center the table */
     border-collapse: collapse;
-    background-color: #ffffff;
+    background-color: #546A7B;
     font-size: 14px;
     /* Slightly larger font for readability */
     border-radius: 8px;
     /* Rounded table corners */
     /* overflow: hidden; /* Clip overflow for rounded corners */
+    user-select: none;
+    /* Prevents text selection */
+    cursor: default;
+    /* Prevents pointer interaction */
 }
 
 /* Header Styles */
 table th {
-    background-color: #00796B;
+    background-color: #678296;
     /* Teal */
-    color: #ffffff;
+    color: #393D3F;
     font-weight: bold;
     font-size: 14px;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: .1rem;
+    letter-spacing: .05rem;
+    position: sticky;
+    top: 0%;
+    z-index: 0;
 }
 
 /* Row Background Colors */
 table tr:nth-child(even) {
-    background-color: #E0F2F1;
+    background-color: #EBF2FA;
     /* Light Mint */
 }
 
 table tr:nth-child(odd) {
-    background-color: #ffffff;
+    background-color: #FDFDFF;
 }
 
 /* Hover Effect */
 table tr:hover {
-    background-color: #B2DFDB;
+    background-color: #acd9ec;
     /* Pale Aqua */
     transition: background-color 0.3s ease;
 }
@@ -196,10 +170,10 @@ table tr:hover {
 table td {
     border-right: 1px solid #e0e0e0;
     /* Light grey borders between cells */
-    padding: 8px 12px;
+    padding: 5px 9px;
     /* Balanced padding */
     text-align: center;
-    color: #333;
+    color: #393D3F;
     /* Dark grey text for better contrast */
     font-family: 'Arial', sans-serif;
 }
@@ -210,9 +184,9 @@ table td:nth-child(1),
 table td:nth-child(4) {
     /* GMP */
     font-weight: bold;
-    text-decoration: underline;
-    color: #00796B;
-    /* Teal for emphasis */
+    font-size: 15px;
+    text-decoration: none;
+    color: #05668D;
 }
 
 /* Table Scrolling */
@@ -237,24 +211,14 @@ table th:last-child {
     /* Top-right corner */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-
-    table td,
-    table th {
-        font-size: 12px;
-        /* Adjust font size for smaller screens */
-        padding: 6px;
-        /* Reduce padding for compact layout */
-    }
-}
-
+/* ------------------------------------------------------------------------- */
 /* Footer Styles */
 footer {
-    background-color: #333333;
+    background-color: #393D3F;
     /* Dark Slate Gray */
-    color: #fff;
+    color: #FDFDFF;
     padding: 40px 20px;
+    padding-bottom: 0px;
     font-size: 0.9rem;
     margin-top: auto;
 }
@@ -263,39 +227,40 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin-top: 20px;
 }
 
-.footer-links,
-.contact-info,
-.social-links,
-.newsletter,
-.legal-info {
-    flex: 1 1 200px;
-    margin: 10px;
+.contact-info {
+    width: 33%;
+    padding-left: 10%;
 }
 
 h4 {
     font-size: 1.1rem;
     margin-bottom: 10px;
-    color: #fff;
+    color: #C6C5B9;
 }
 
 a {
-    color: #00bfae;
-    /* Vibrant Turquoise/Teal */
+    color: #C6C5B9;
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+.social-links {
+    width: 33%;
+    padding-left: 10%;
 }
 
 .social-links img {
     width: 30px;
     height: 30px;
     margin: 0 5px;
+}
+
+.newsletter {
+    width: 33%;
+    padding-left: 10%;
 }
 
 .newsletter input {
@@ -307,149 +272,34 @@ a:hover {
 }
 
 .newsletter button {
+    margin-top: 10px;
     padding: 10px 20px;
-    background-color: #00bfae;
-    /* Vibrant Turquoise/Teal */
+    background-color: #F25F5C;
     border: none;
     color: #333;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
 .newsletter button:hover {
-    background-color: #009f8c;
-    /* Darker Teal for hover */
+    background-color: #C6C5B9;
+    transition: background-color 0.5s ease;
+}
+
+.end {
+    padding: 50px;
+    padding-bottom: 5px;
 }
 
 .legal-info {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .footer-cta {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
     font-size: 1rem;
     color: #fff;
-}
-
-@media only screen and (max-width: 600px) {
-
-    /* Header Navigation */
-    nav {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    /* Table Styles */
-    .ipo-data table {
-        width: 100%;
-        max-width: none;
-    }
-
-    table {
-        font-size: 0.9rem;
-    }
-
-    /* Footer */
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-links,
-    .contact-info,
-    .social-links,
-    .newsletter,
-    .legal-info {
-        flex: 1 1 100%;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    /* Newsletter Input Field */
-    .newsletter input {
-        width: 80%;
-        margin-bottom: 10px;
-    }
-
-    .newsletter button {
-        width: 80%;
-    }
-
-    /* Footer CTA */
-    .footer-cta {
-        font-size: 0.9rem;
-    }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-
-    /* Header Navigation */
-    nav {
-        padding: 10px 30px;
-    }
-
-    .logo {
-        font-size: 1.8rem;
-    }
-
-    .nav-links {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .nav-links li {
-        margin: 0 20px;
-    }
-
-    /* Table Styles */
-    .ipo-data table {
-        width: 100%;
-        max-width: 900px;
-    }
-
-    table th,
-    table td {
-        padding: 8px;
-    }
-
-    /* Footer */
-    .footer-container {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .footer-links,
-    .contact-info,
-    .social-links,
-    .newsletter,
-    .legal-info {
-        flex: 1 1 250px;
-        margin: 10px;
-    }
-
-    .newsletter input {
-        width: 75%;
-    }
-
-    .footer-cta {
-        font-size: 1rem;
-    }
 }
