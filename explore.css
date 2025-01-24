@@ -117,20 +117,14 @@ nav {
 table {
     width: 100%;
     max-width: 1100px;
-    /* Restrict maximum width */
     margin: 0 auto;
-    /* Center the table */
     border-collapse: collapse;
     background-color: #546A7B;
     font-size: 14px;
-    /* Slightly larger font for readability */
     border-radius: 8px;
-    /* Rounded table corners */
-    /* overflow: hidden; /* Clip overflow for rounded corners */
     user-select: none;
-    /* Prevents text selection */
     cursor: default;
-    /* Prevents pointer interaction */
+    border: solid 3px #546A7B;
 }
 
 /* Header Styles */
