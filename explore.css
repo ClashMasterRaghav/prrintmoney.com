@@ -124,13 +124,11 @@ table {
     border-radius: 8px;
     user-select: none;
     cursor: default;
-    border: solid 3px #546A7B;
 }
 
 /* Header Styles */
 table th {
     background-color: #678296;
-    /* Teal */
     color: #393D3F;
     font-weight: bold;
     font-size: 14px;
