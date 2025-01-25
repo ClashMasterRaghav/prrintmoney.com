@@ -92,8 +92,8 @@ def fetch_ipo_data_requests():
         # Save data to CSV if data is available
         if data:
             df = pd.DataFrame(data)
-            df.to_csv(CSV_PATH, index=False)
-            print(f"Data saved to {CSV_PATH}")
+            df.to_csv(ipo_data.csv, index=False)
+            print(f"Data saved to {ipo_data.csv}")
             return df
         else:
             print("No data extracted.")
